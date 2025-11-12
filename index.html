@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Domine Seu Dinheiro — Compra</title>
+  <style>
+    :root{
+      --bg:#000;
+      --text:#fff;
+      --accent:#f5c542;
+      --muted:rgba(255,255,255,0.6);
+      --card-bg:rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box;font-family:Inter,system-ui,Arial,Helvetica,sans-serif}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text)}
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.7), rgba(0,0,0,0.85)),
+        url('https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1600&q=60');
+      background-size:cover;
+      background-position:center;
+    }
+    .container{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:start;
+    }
+    .left{
+      padding:32px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    }
+    .title{
+      font-size:28px;
+      font-weight:700;
+      letter-spacing: -0.5px;
+      margin:0 0 12px 0;
+    }
+    .subtitle{color:var(--muted);margin:0 0 20px 0}
+    .features{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .chip{
+      padding:8px 12px;border-radius:10px;background:var(--card-bg);
+      font-size:14px;color:var(--muted)
+    }
+    .right{
+      padding:24px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .price{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;}
+    .price .valo{font-size:36px;font-weight:800;color:var(--accent);}
+    .pix{margin-top:8px;font-size:14px;color:var(--muted);word-break:break-word;}
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-size:13px;color:var(--muted)}
+    input[type="text"], input[type="email"], input[type="file"]{
+      width:100%;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);
+      background:transparent;color:var(--text);outline:none;
+    }
+    .hint{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .btn{margin-top:8px;padding:12px;border-radius:10px;border:none;font-weight:700;cursor:pointer;
+      background:linear-gradient(90deg,#ffb84d,#f7c86b);color:#000;box-shadow:0 6px 18px rgba(0,0,0,0.6);}
+    .small{font-size:13px;color:var(--muted);}
+    footer{margin-top:18px;font-size:13px;color:var(--muted)}
+    @media (max-width:980px){.container{grid-template-columns:1fr; padding:12px}.hero{padding:20px}}
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <div class="container">
+      <section class="left">
+        <h1 class="title">Domine Seu Dinheiro: Controle Financeiro & Investimentos no Brasil</h1>
+        <p class="subtitle">Transforme sua relação com o dinheiro com estratégias práticas e testadas — orçamento, poupança estratégica e investimentos para o investidor brasileiro.</p>
+        <div class="features">
+          <div class="chip">Diagnóstico financeiro passo-a-passo</div>
+          <div class="chip">Renda fixa, Tesouro e FIIs explicados</div>
+          <div class="chip">Ações brasileiras & dividendos</div>
+          <div class="chip">Modelos de orçamento e planilhas</div>
+        </div>
+        <section style="margin-top:22px;">
+          <h3>Sobre o eBook</h3>
+          <p class="small">Conteúdo completo para controlar gastos, criar reserva de emergência e montar uma carteira de investimentos alinhada ao mercado brasileiro. O arquivo será enviado por e-mail <strong>após confirmação manual</strong> do comprovante de pagamento via PIX.</p>
+        </section>
+      </section>
+      <aside class="right">
+        <h2>Adquira agora</h2>
+        <div class="price"><div class="valo">R$ 30,00</div><div class="small">Pagamento via PIX</div></div>
+        <div class="pix"><strong>PIX (chave):</strong> gc079343@gmail.com<br><span class="small">Após o pagamento, envie o comprovante abaixo.</span></div>
+        <form id="paymentForm" enctype="multipart/form-data">
+          <label>Nome completo</label><input type="text" name="nome" required>
+          <label>Email (Gmail)</label><input type="email" name="email" required>
+          <label>Comprovante de pagamento</label><input type="file" name="comprovante" required>
+          <button type="submit" class="btn">Enviar comprovante e finalizar</button>
+          <p class="small">Suas informações serão enviadas para controle no e-mail <strong>gc079343@gmail.com</strong>. O eBook será remetido apenas após confirmação manual do pagamento.</p>
+          <footer><strong>Atenção:</strong> Caso não apareça no seu e-mail, entre em contato pelo número: <strong>(91) 98229-3384</strong> e envie o comprovante.</footer>
+        </form>
+      </aside>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    const EMAILJS_SERVICE_ID = 'service_r71jz7d';
+    const EMAILJS_TEMPLATE_ID = 'template_0gvd16q';
+    const EMAILJS_PUBLIC_KEY = 'uPWm4sxvChJSfOqyd';
+    (function(){emailjs.init(EMAILJS_PUBLIC_KEY);})();
+    document.getElementById('paymentForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this).then(()=>{
+        window.location.href='confirmacao.html';
+      },()=>alert('Erro ao enviar.'));
+    });
+  </script>
+</body>
+</html>
