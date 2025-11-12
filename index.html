@@ -110,14 +110,14 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
     const EMAILJS_SERVICE_ID = 'service_r71jz7d';
-    const EMAILJS_TEMPLATE_ID = 'template_v63sbzd';
+    const EMAILJS_TEMPLATE_ID = 'template_tkzaut6';
     const EMAILJS_PUBLIC_KEY = 'uPWm4sxvChJSfOqyd';
     (function(){emailjs.init(EMAILJS_PUBLIC_KEY);})();
     document.getElementById('paymentForm').addEventListener('submit',function(e){
       e.preventDefault();
       emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this).then(()=>{
         window.location.href='confirmacao.html';
-      },()=>alert('Aviso: Falha ao enviar os comprovante, entre em contato com o número abaixo do formulario para o envio do comprovante.'));
+      },()=>alert('Erro ao enviar, entre em contato com:91982293384 para envio do comprovante.'));
     });
   </script>
 </body>
